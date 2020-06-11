@@ -2,7 +2,7 @@ import { dateFormatter } from './utils.js'
 import { renderApp } from './utils.js'
 import { addPic } from './utils.js'
 
-function Apod(id){
+export function Apod(id){
     this.id = id;
     this.date = undefined;
    
