@@ -57,12 +57,17 @@ export function addPic() {
     }
    
 fetch('https://api.nasa.gov/planetary/apod?api_key=8nKfq0oD4AkMGecYwH6MVUB1B5Ua1MnC5fKiWczl&date=' + this.dateFormatter())
-.then(response => response.json())
+.then(response => {
+    console.log(response);
+    if(!response.ok){
+    throw new Error('could not find Apod')
+}
+
+return response.json()
+})
+
 .then(data => this.renderApp(data))
-/*.catch(error => err() )
-function = err() {
-let err = document.createElement('h2')
-err.innerText = data.err;}*/
+.catch(err => console.log(err))
 
 
 
